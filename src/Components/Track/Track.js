@@ -3,17 +3,17 @@ import './Track.css';
 
 class Track extends React.Component {
   renderAction() {
-      return <button className="Track-action">{ isRemoval ? '-' : '+' }</button>;
+      return <button className="Track-action">{ this.props.isRemoval ? '-' : '+' }</button>;
     }
 
   render() {
     return (
       <div className="Track">
         <div className="Track-information">
-          <h3>{Track.name}</h3>
-          <p>{Track.artist} | {Track.artist}</p>
+          <h3>{this.props.track.name}</h3>
+          <p>{this.props.track.artist} | {this.props.track.album}</p>
         </div>
-        <button className="Track-action"></button>
+        {this.renderAction()}
       </div>
       )
     }
