@@ -1,19 +1,47 @@
-import './App.css';
 import React from 'react';
+import './App.css';
+
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { searchResults: 
+      [
+        {
+          id: 1,
+          name: 'Track Name',
+          artist: 'Artist Name',
+          album: 'Album Name'
+        },
+        {
+          id: 2,
+          name: 'Track Name',
+          artist: 'Artist Name',
+          album: 'Album Name'
+        },
+        {
+          id: 3,
+          name: 'Track Name',
+          artist: 'Artist Name',
+          album: 'Album Name'
+        }
+      ] 
+    };
+  }
+
   render() {
     return (
       <div>
         <h1><span className="highlight">Tunes</span></h1>
         <div className="App">
-          {/* Add a SearchBar component */}
+          <SearchBar />
           <div className="App-playlist">
-            {/* Add a SearchResults component */}
-            {/* Add a Playlist component */}
+            <SearchResults searchResults={this.state.searchResults} />
+            <Playlist />
           </div>
         </div>
       </div>
