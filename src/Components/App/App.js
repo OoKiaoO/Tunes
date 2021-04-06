@@ -36,19 +36,22 @@ class App extends React.Component {
           id: 4,
           name: 'Track Name',
           artist: 'Artist Name',
-          album: 'Album Name'
+          album: 'Album Name',
+          trackURI: 'spotify:track:4rqhFgbbKwnb9MLmUQDhG6'
         },
         {
           id: 5,
           name: 'Track Name',
           artist: 'Artist Name',
-          album: 'Album Name'
+          album: 'Album Name',
+          trackURI: 'spotify:track:5rqhFgbbKwnb9MLmUQDhG6'
         },
         {
           id: 6,
           name: 'Track Name',
           artist: 'Artist Name',
-          album: 'Album Name'
+          album: 'Album Name',
+          trackURI: 'spotify:track:6rqhFgbbKwnb9MLmUQDhG6'
         }
       ]
     };
@@ -56,6 +59,7 @@ class App extends React.Component {
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
+    this.savePlaylist = this.savePlaylist.bind(this);
   }
 
   addTrack(track) {
@@ -80,6 +84,11 @@ class App extends React.Component {
     this.setState({ playlistName: newName });
   }
 
+  savePlaylist() {
+    const trackURIs = this.state.playlistTracks.map(track => track.trackURI);
+    return trackURIs;
+  }
+
   render() {
     return (
       <div>
@@ -92,7 +101,8 @@ class App extends React.Component {
               onRemove={this.removeTrack} 
               playlistName={this.state.playlistName} 
               playlistTracks={this.state.playlistTracks}
-              onNameChange={this.updatePlaylistName} />
+              onNameChange={this.updatePlaylistName}
+              onSave={this.savePlaylist} />
           </div>
         </div>
       </div>
