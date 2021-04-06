@@ -9,8 +9,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { searchResults: 
-      [
+    this.state = { 
+      searchResults: [
         {
           id: 1,
           name: 'Track Name',
@@ -29,7 +29,28 @@ class App extends React.Component {
           artist: 'Artist Name',
           album: 'Album Name'
         }
-      ] 
+      ],
+      playlistName: 'My Playlist',
+      playlistTracks: [
+        {
+          id: 1,
+          name: 'Track Name',
+          artist: 'Artist Name',
+          album: 'Album Name'
+        },
+        {
+          id: 2,
+          name: 'Track Name',
+          artist: 'Artist Name',
+          album: 'Album Name'
+        },
+        {
+          id: 3,
+          name: 'Track Name',
+          artist: 'Artist Name',
+          album: 'Album Name'
+        }
+      ]
     };
   }
 
@@ -41,7 +62,7 @@ class App extends React.Component {
           <SearchBar />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} />
-            <Playlist />
+            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
           </div>
         </div>
       </div>
