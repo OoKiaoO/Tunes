@@ -60,14 +60,15 @@ let Spotify = {
       body: JSON.stringify({ uris: uri_array })
     }
     fetch('https://api.spotify.com/v1/me', { headers: headers }).then(response => response.json()).then((data) => {
-      console.log(data);
+      // console.log(data);
       const user_id = data.id;
       console.log(user_id);
       return fetch(`https://api.spotify.com/v1/users/${user_id}/playlists`, createPlaylistPost)
       .then(response => response.json())
       .then((data) => {
         const playlistID = data.id;
-        return fetch(`https://api.spotify.com/v1/playlists/${playlistID}/tracks`, addTracksPost)
+        console.log("inside third save fetch");
+        return fetch(`https://api.spotify.com/v1/playlists/${playlistID}/tracks`, addTracksPost);
       })
     });
   }
