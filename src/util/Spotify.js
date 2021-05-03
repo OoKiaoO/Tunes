@@ -1,6 +1,7 @@
 let userAccessToken = '';
 const clientID = process.env.REACT_APP_SPOTIFY_API_KEY;
-const redirectURI = "https://spotifytunes.netlify.app/callback/";
+// const redirectURI = "https://spotifytunes.netlify.app/callback/";
+const redirectURI = "http://localhost:3000/callback";
 
 let Spotify = {
   getAccessToken() {
@@ -19,7 +20,11 @@ let Spotify = {
       window.history.pushState('Access Token', null, '/');
       return userAccessToken;
     } else {
-      const redirectURL = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+         const redirectURL = "https://accounts.spotify.com/authorize?client_id=" +
+         clientID +
+         "&response_type=token&scope=playlist-modify-public&redirect_uri=" +
+         redirectURI;
+      // const redirectURL = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
       window.location = redirectURL;
     }
   },
