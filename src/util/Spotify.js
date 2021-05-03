@@ -1,6 +1,6 @@
 let userAccessToken = '';
 const clientID = process.env.REACT_APP_SPOTIFY_API_KEY;
-const redirectURI = "https://spotifytunes.netlify.app/callback/";
+const redirectURI = "https://spotifytunes.netlify.app/";
 // const redirectURI = "http://localhost:3000/callback";
 
 let Spotify = {
